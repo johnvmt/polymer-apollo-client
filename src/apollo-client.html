@@ -1,0 +1,58 @@
+<script>
+	(function() {
+		class ApolloClient extends HTMLElement {
+			constructor() {
+				super();
+			}
+
+			get wsUri() {
+				return this.getAttribute('ws-uri') || undefined;
+			}
+
+			set wsUri(val) {
+				if(this.getAttribute('ws-uri') !== val)
+					return this.setAttribute('ws-uri', val);
+			}
+
+			get httpUri() {
+				return this.getAttribute('http-uri') || undefined;
+			}
+
+			set httpUri(val) {
+				if(this.getAttribute('http-uri') !== val)
+					return this.setAttribute('http-uri', val);
+			}
+
+			static get observedAttributes() {
+				return ['ws-uri', 'http-uri'];
+			}
+
+			/* emitMirror(mirrorTag, functionName, functionArgs) {
+				if(!Array.isArray(functionArgs))
+					functionArgs = [];
+
+				let emitMirrorDetail = {function: functionName, arguments: functionArgs};
+				if(typeof mirrorTag != 'undefined')
+					emitMirrorDetail.tag = mirrorTag;
+
+				let mirrorEvent = new CustomEvent('mirror', {detail: emitMirrorDetail});
+				this.dispatchEvent(mirrorEvent);
+
+			}; */
+
+			attributeChangedCallback(attribute, oldVal, newVal) {
+				const thisElem = this;
+				switch(attribute) {
+					case 'ws-uri':
+						thisElem.wsUri = newVal;
+						break;
+					case 'http-uri':
+						thisElem.httpUri = newVal;
+						break;
+				}
+			};
+		}
+
+		customElements.define('apollo-client', ApolloClient);
+	})();
+</script>
