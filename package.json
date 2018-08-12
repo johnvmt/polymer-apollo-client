@@ -1,6 +1,6 @@
 {
   "name": "polymer-apollo-client",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GraphQL Client Web Component",
   "keywords": ["Apollo", "Polymer", "GraphQl"],
   "author": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/johnvmtpolymer-apollo-client"
+    "url": "https://github.com/johnvmt/polymer-apollo-client"
   },
   "private": true,
   "scripts": {
